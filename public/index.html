@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkUp - Connect & Grow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <header class="login-header">
+                <h1 class="logo-text">LinkUp</h1>
+                <p>Connect, Share, and Grow Professionally.</p>
+            </header>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-view="login">Sign In</button>
+                <button class="auth-tab" data-view="signup">Sign Up</button>
+            </div>
+            <form id="login-form" class="auth-view">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" value="demo@user.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" value="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            <form id="signup-form" class="auth-view hidden">
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+        </div>
+    </div>
+    <div id="page-app" class="hidden">
+        <nav class="main-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <span class="logo-text-small">LinkUp</span>
+                </div>
+                <div class="nav-right">
+                    <button id="nav-feed" class="nav-link active"><span>🏠</span><span class="nav-text">Home</span></button>
+                    <button id="nav-profile" class="nav-link"><span>👤</span><span class="nav-text">Me</span></button>
+                    <button id="logout-button" class="nav-link"><span>🚪</span><span class="nav-text">Logout</span></button>
+                </div>
+            </div>
+        </nav>
+        <main class="main-container">
+            <aside class="sidebar sidebar-left">
+                <div class="card profile-stub">
+                    <div class="profile-stub-header"></div>
+                    <img id="sidebar-avatar" class="profile-stub-avatar" src="" alt="User Avatar">
+                    <div class="profile-stub-info">
+                        <h3 id="sidebar-name"></h3>
+                        <p id="sidebar-title"></p>
+                    </div>
+                </div>
+            </aside>
+            <div class="main-content">
+                <div id="view-feed">
+                    <div class="card create-post">
+                        <div class="create-post-top">
+                            <img id="create-post-avatar" class="avatar-medium" src="" alt="User Avatar">
+                            <textarea id="post-content-input" class="create-post-textarea" rows="3" placeholder="Start a post..."></textarea>
+                        </div>
+                        <div class="create-post-bottom">
+                            <div></div>
+                            <button id="submit-post-button" class="btn btn-primary" disabled>Post</button>
+                        </div>
+                    </div>
+                    <div id="post-feed-container"></div>
+                </div>
+                <div id="view-profile" class="hidden">
+                    <div class="card">
+                        <div class="profile-header">
+                            <div class="profile-banner"></div>
+                            <img id="profile-avatar" class="profile-avatar" src="" alt="Profile Avatar">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-name"></h2>
+                            <p id="profile-title"></p>
+                            <div class="profile-actions">
+                                <button class="btn btn-primary">Connect</button>
+                                <button class="btn btn-secondary">Message</button>
+                            </div>
+                        </div>
+                        <div class="profile-section">
+                            <h3>About</h3>
+                            <p id="profile-about"></p>
+                        </div>
+                        <div class="profile-section profile-activity">
+                             <h3>Activity</h3>
+                             <div id="profile-posts-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="comments-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="comments-modal-title">Comments</h3>
+                <button id="close-comments-modal" class="modal-close-btn">&times;</button>
+            </div>
+            <div id="comments-list-container" class="modal-body"></div>
+            <div class="modal-footer">
+                <img id="modal-comment-avatar" class="avatar-small" src="" alt="User Avatar">
+                <form id="comment-form" class="comment-form">
+                    <input type="hidden" id="comment-post-id">
+                    <textarea id="comment-input" class="comment-input" rows="2" placeholder="Add a comment..."></textarea>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

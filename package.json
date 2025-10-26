@@ -1,0 +1,11 @@
+{
+  "name": "linkup-vercel",
+  "version": "1.0.0",
+  "main": "api/index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
